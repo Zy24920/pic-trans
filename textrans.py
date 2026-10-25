@@ -52,7 +52,8 @@ def run(querys: str, from_lang: str=from_lang, to_lang: str=to_lang) -> str: #fr
     try:
         # Show response
         # data = json.dumps(result, indent=4, ensure_ascii=False)
-        return result['trans_result'][0]['dst']
+        # q 中用换行符分隔的多段文本会各自返回一条翻译结果，需全部拼接
+        return '\n'.join(item['dst'] for item in result['trans_result'])
 
     except (KeyError, IndexError, TypeError) as exc:
         raise RuntimeError(f"百度翻译返回数据格式异常：{result}") from exc
