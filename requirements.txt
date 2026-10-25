@@ -1,0 +1,4 @@
+# 桌面翻译（fanyi_pro_v2 / baidu_pic_translate）运行依赖
+# 安装：pip install -r requirements.txt
+pillow>=9.0
+requests>=2.25
